@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:ContactsApp.ViewModels" 
+             xmlns:customlayouts="clr-namespace:ContactsApp.CustomLayouts" 
+             xmlns:converters="clr-namespace:ContactsApp.Converters" xmlns:contactsapp="clr-namespace:ContactsApp"
+             x:Class="ContactsApp.Views.ContactDetails" BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NameToFirstLetterConverter x:Key="NameToFirstLetterConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="85, *">
+            <Grid Margin="30,0">
+                <customlayouts:CustomButton Command="{Binding BackCommand}" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="50">
+                    <Path Data="M24 40 8 24 24 8l2.1 2.1-12.4 12.4H40v3H13.7l12.4 12.4Z"
+                          Fill="Black"/>
+                </customlayouts:CustomButton>
+                <customlayouts:CustomButton Command="{Binding EditContactCommand}" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50">
+                    <Path Data="M9 39h2.2l22.15-22.15-2.2-2.2L9 36.8Zm30.7-24.3-6.4-6.4 2.1-2.1q.85-.85 2.1-.85t2.1.85l2.2 2.2q.85.85.85 2.1t-.85 2.1Zm-2.1 2.1L12.4 42H6v-6.4l25.2-25.2Zm-5.35-1.05-1.1-1.1 2.2 2.2Z"
+                          Fill="Black"/>
+                </customlayouts:CustomButton>
+            </Grid>
+        
+            <ScrollView Grid.Row="1">
+                <Grid RowDefinitions="*, *" Margin="20,10">
+
+                    <Grid Grid.Row="0" RowDefinitions="Auto, Auto" VerticalOptions="Center" RowSpacing="30">
+                        <customlayouts:ContactIconView FirstLetter="{Binding Contact.FirstName, Converter={StaticResource NameToFirstLetterConverter}}" SecondLetter="{Binding Contact.LastName, Converter={StaticResource NameToFirstLetterConverter}}" 
+                                                   HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" LabelFontSize="60"/>
+                        <Label Grid.Row="1" HorizontalOptions="Center" FontSize="Large">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Contact.FirstName}" />
+                                    <Span Text="{Binding Contact.LastName, StringFormat=' {0}'}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+
+                    <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="40" Margin="30,0">
+                        <Frame Grid.Row="2" HasShadow="False" BackgroundColor="{StaticResource VeryLightGray}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CallContactCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Label Text="Telephone:" FontSize="Medium"/>
+                                <Label Text="{Binding Contact.PhoneNumber}" FontSize="Medium" Margin="50,0,0,0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="3" HasShadow="False" BackgroundColor="{StaticResource VeryLightGray}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EmailContactCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Label Text="Email:" FontSize="Medium"/>
+                                <Label Text="{Binding Contact.Email}" FontSize="Medium" Margin="50,0,0,0"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

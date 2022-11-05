@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customlayouts="clr-namespace:ContactsApp.CustomLayouts"
+             x:Class="ContactsApp.Views.EditContact" BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowDefinitions="85, *">
+            <Grid ColumnDefinitions="Auto, *, Auto" Margin="30,0">
+                    <customlayouts:CustomButton Command="{Binding BackCommand}" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="50">
+                    <Path Data="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+                          Fill="Black"/>
+                    </customlayouts:CustomButton>
+                <Label x:Name="TitleLabel" Text="Edit Contact" Grid.Column="1" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"/>
+                <customlayouts:CustomButton Command="{Binding SaveCommand}"  Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50">
+                    <Path Data="M42 13.85V39q0 1.2-.9 2.1-.9.9-2.1.9H9q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h25.15Zm-3 1.35L32.8 9H9v30h30ZM24 35.75q2.15 0 3.675-1.525T29.2 30.55q0-2.15-1.525-3.675T24 25.35q-2.15 0-3.675 1.525T18.8 30.55q0 2.15 1.525 3.675T24 35.75ZM11.65 18.8h17.9v-7.15h-17.9ZM9 15.2V39 9Z"
+                          Fill="Black" BackgroundColor="White"/>
+                    </customlayouts:CustomButton>
+                </Grid>
+
+            <ScrollView Grid.Row="1" VerticalOptions="Center" Margin="30">
+                <Frame BackgroundColor="{StaticResource VeryLightGray}" CornerRadius="20" HasShadow="False">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" Margin="30,20" RowSpacing="30">
+                <StackLayout>
+                    <Label Text="First Name" FontSize="Medium"/>
+                    <Entry Text="{Binding EditContact.FirstName}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
+                            <Label Text="Last Name" FontSize="Medium"/>
+                    <Entry Text="{Binding EditContact.LastName}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                            <Label Text="Email" FontSize="Medium"/>
+                    <Entry Text="{Binding EditContact.Email}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="3">
+                            <Label Text="Phone Number" FontSize="Medium"/>
+                    <Entry Text="{Binding EditContact.PhoneNumber}"/>
+                </StackLayout>
+            </Grid>
+                </Frame>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
