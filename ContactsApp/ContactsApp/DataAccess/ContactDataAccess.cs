@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ContactsApp.DataAccess
 {
-    internal class ContactDataAccess : IDataAccess<ContactModel>
+    public class ContactDataAccess : IDataAccess<ContactModel>
     {
         public static string Filename => "Contacts.txt";
 
@@ -28,7 +28,11 @@ namespace ContactsApp.DataAccess
         //ContactModel could inherit from interface with ID in it. Then this method could be abstracted out so it can be used with other models
         public void SaveItem(ContactModel newRecord)
         {
-            var records = GetAllItems();
+            SaveItem(newRecord, GetAllItems());
+        }
+
+        public void SaveItem(ContactModel newRecord, List<ContactModel> records)
+        {
             var record = records.FirstOrDefault(x => x.ID == newRecord.ID);
             //If record exists, else add as new one
             if (record != null)
@@ -42,14 +46,14 @@ namespace ContactsApp.DataAccess
             SaveToFile(records);
         }
 
-        void ReplaceRecord(List<ContactModel> records, ContactModel existingRecord, ContactModel newRecord)
+        public void ReplaceRecord(List<ContactModel> records, ContactModel existingRecord, ContactModel newRecord)
         {
             //Replace old record with new
             var index = records.IndexOf(existingRecord);
             records[index] = newRecord;
         }
 
-        void AddNewRecord(List<ContactModel> records, ContactModel newRecord)
+        public void AddNewRecord(List<ContactModel> records, ContactModel newRecord)
         {
             //Get highest ID
             var max = records.Max(x => x.ID);

@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "MViZ6/d632mWZgxHCsFrdA2e7PDGm/bhBKD62ESgHqirWq2CbbELeBTec6eMuKGT2XSUruGMH7plWglCUZ8o+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\go\\source\\repos\\ContactsApp\\ContactsApp\\ContactsApp\\ContactsApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\go\\.nuget\\packages\\fody\\6.6.4\\fody.6.6.4.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\propertychanged.fody\\4.0.5\\propertychanged.fody.4.0.5.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
+    "C:\\Users\\go\\.nuget\\packages\\xamarin.forms\\5.0.0.2515\\xamarin.forms.5.0.0.2515.nupkg.sha512"
+  ],
+  "logs": []
+}

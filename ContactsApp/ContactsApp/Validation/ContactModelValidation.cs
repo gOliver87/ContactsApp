@@ -10,7 +10,7 @@ namespace ContactsApp.Validation
     /// <summary>
     /// Quick simple validation for the contact model
     /// </summary>
-    internal class ContactModelValidation
+    public class ContactModelValidation
     {
         //Names must be at least 1 letter and all letters
         static public bool NameValidation(string name)
